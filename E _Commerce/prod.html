@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            display: flex;
+            /* margin: 10px; */
+        }
+        #main>div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="cart"></button>
+    <select id="pricesort" onchange="pricechange()">
+        <option value="low">Low to high</option>
+        <option value="high">High to low</option>
+    </select>
+    <select id="namesort" onchange="namesrt()">
+        <option value="ase">Asending</option>
+        <option value="dec">Decending</option>
+    </select>
+    <select id="select" onchange="fitter()">
+        <option>----</option>
+        <option value="tee">Tee</option>
+        <option value="shoe">shoe</option>
+        <option value="shirt">shirt</option>
+    </select>
+    <h1>Product</h1>
+    <div id="main"></div>
+</body>
+</html>
+
+<script>
+
+
+
+var product=JSON.parse(localStorage.getItem("pro"))
+var cart=JSON.parse(localStorage.getItem("cart"))||[]
+document.querySelector("#cart").textContent=cart.length
+display(product)
+
+function display(product){
+ document.querySelector("#main").textContent=""
+    product.map(function(el){
+    // console.log(el)
+    var mdiv=document.createElement("div")
+
+    var img=document.createElement("img")
+    img.setAttribute("src",el.img)
+    var h3=document.createElement("h3")
+    h3.textContent=el.name
+    var price=document.createElement("p")
+    price.textContent=el.pri 
+    
+    var btn=document.createElement("button")
+    btn.textContent="Add to cart"
+    btn.addEventListener("click",function(){
+        console.log(el)
+        addtocart(el)
+    })
+
+
+    mdiv.append(img,h3,price,btn)
+
+    document.querySelector("#main").append(mdiv)
+    });
+}
+function addtocart(el){
+    cart.push(el);
+    console.log(el)
+
+    localStorage.setItem("cart",JSON.stringify(cart))
+}
+
+function pricechange(){
+    var select= document.querySelector("#pricesort").value
+    console.log(select)
+
+    if(select=="low"){
+        product.sort(function(a,b){
+           return Number(a.pri)-Number(b.pri)
+        })
+    }
+    if(select=="high"){
+        product.sort(function(a,b){
+           return Number(b.pri)-Number(a.pri)
+        })
+    }
+    console.log(product)
+    display(product)
+}
+
+function namesrt(){
+    var name=document.querySelector("#namesort").value
+    console.log(name)
+
+    if(name="ase"){
+        product.sort(function(a,b){
+            if(a.name>b.name){
+                return 1;
+            }
+            if(a.name<b.name){
+                return-1;
+            }
+            return 0;
+        })
+    }
+    if(name="dec"){
+        product.sort(function(a,b){
+            if(a.name>b.name){
+                return -1;
+            }
+            if(a.name<b.name){
+                return 1
+            }
+            return 0;
+        })
+    }
+    display(product)
+}
+
+
+function fitter(){
+ var select=document.querySelector("#select").value
+//  console.log(select)
+    if(select=="tee"){  
+    product.filter(shirt)
+        function shirt(el){
+        return el.type
+        }
+    }
+    console.log(product)
+}
+
+</script>
