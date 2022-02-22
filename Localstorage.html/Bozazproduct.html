@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOACAL STORAGE</title>
+</head>
+<style>
+  body {
+    background-color: whitesmoke;
+    margin: 100px;
+  }
+
+  .par {
+    width: 100%;
+    height: 500px;
+  }
+
+  .parent {
+    width: 60%;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .form {
+    width: 30%;
+    height: 100%;
+    margin-left: 30px;
+  }
+
+  #showData {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .tr {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .td {
+    width: 100%;
+    padding: 5px;
+    font-family: sans-serif;
+  }
+
+  .input {
+    width: 90%;
+    height: 5%;
+    margin-bottom: 10px;
+    border-radius: 1px;
+    border: 1px solid whitesmoke;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #discription {
+    width: 90%;
+    border-radius: 1px;
+    border: 1px solid whitesmoke;
+  }
+
+  #submit {
+    width: 70px;
+    background-color: rgb(6, 84, 87);
+    border: 1px solid rgb(6, 84, 87);
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+
+  label {
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  h1 {
+    color: rgb(6, 84, 87);
+  }
+</style>
+
+<body>
+  <div class="parent">
+    <div class="form">
+      <h1>Add Products</h1>
+      <label for="Electronics">Category</label>
+      <hr style="border: none;">
+      <select id="select" class="input">
+        <option value="ELECTRONICS">Electronics</option>
+        <label for="Electronics">Category</label>
+        <option value="FURNITURE">Furniture</option>
+        <option value="HOME">Home</option>
+        <option value="APPLIANCE">Appliance</option>
+        <option value="BOOKS">Books</option>
+      </select>
+      <label for="Title">Title</label>
+      <hr style="border: none;">
+      <input type="text" id="title" , placeholder=" Enter Title" class="input">
+      <label for="Discription">Discription</label>
+      <hr style="border: none;">
+      <textarea id="discription" placeholder="Enter Discription"></textarea>
+      <label for="Price">Price</label>
+      <hr style="border: none;">
+      <input type="text" id="price" , placeholder="Enter Your Price" class="input">
+      <button id="submit">Add</button>
+    </div>
+    <div class="par">
+      <h1>Products Info</h1>
+      <div class="tr">
+        <div class="td">#</div>
+        <div class="td">CATEGORY</div>
+        <div class="td">TITILE</div>
+        <div class="td">DESCRIPTION</div>
+        <div class="td">PRICE</div>
+      </div>
+      <div id="showData">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  var submit = document.getElementById('submit').addEventListener('click', runProgram)
+  var arr = JSON.parse(localStorage.getItem('data')) || []
+  function runProgram() {
+    var select = document.getElementById('select').value
+    var title = document.getElementById('title').value
+    var discription = document.getElementById('discription').value
+    var price = document.getElementById('price').value
+    var obj = {
+      category: select,
+      title: title,
+      discription: discription,
+      price: price
+    }
+    arr.push(obj)
+    localStorage.setItem('data', JSON.stringify(arr))
+    display()
+  }
+  var i = 0
+  var showData = document.getElementById('showData')
+
+  
+  function display() {
+    showData.innerHTML = ''
+    var getData = JSON.parse(localStorage.getItem('data'))
+    getData.map(function (ele) {
+      var showData = document.getElementById('showData')
+      var tr = document.createElement('div')
+      tr.setAttribute('class', 'tr')
+      var SN = document.createElement('div')
+      SN.setAttribute('class', 'td')
+      SN.textContent = i++
+      var div1 = document.createElement('div')
+      div1.setAttribute('class', 'td')
+      div1.textContent = ele.category
+      var div2 = document.createElement('div')
+      div2.setAttribute('class', 'td')
+      div2.textContent = ele.title
+      var div3 = document.createElement('div')
+      div3.setAttribute('class', 'td')
+      div3.textContent = ele.discription
+      var div4 = document.createElement('div')
+      div4.setAttribute('class', 'td')
+      div4.textContent = ele.discription
+      var div5 = document.createElement('div')
+      div5.setAttribute('class', 'td')
+      div5.textContent = ele.price
+      tr.append(SN, div1, div2, div3, div4, div5)
+      showData.append(tr)
+    })
+  }
+  display()
+</script>

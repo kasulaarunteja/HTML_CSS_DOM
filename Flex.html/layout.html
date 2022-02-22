@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bulid the layout using flex and its properties</title>
+    <style>
+         #container {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        
+      }
+      #container > div {
+        width: 25%;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin:10px;
+      }
+      #container > div > div {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+
+      }
+      
+      div > p:nth-child(2) {
+        color:gold;
+        font-weight: bold;
+        padding-left:0;
+      }
+      .text>p{
+        color: lightgray;
+        font-size: 15px;
+      }
+      
+      
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <div>
+                <p>Cappunico</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Americano</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Espresso</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Macchiato</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Mocha</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>coffee Latte</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Piccolo Latte</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Ristretto</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+        <div>
+            <div>
+                <p>Affogato</p>
+                <p>$49</p>
+            </div>
+             <div class="text">
+              <p>usage of the internet is becomeing more common due to rapid adavance</p>
+             </div>  
+        </div>
+    </div>
+</body>
+</html>

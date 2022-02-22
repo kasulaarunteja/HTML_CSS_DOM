@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 400px;
+            column-gap: 10px;
+            display: flex;
+            margin-left: 100px;
+
+        }#secondcontainer{
+            display: flex;
+        }
+        #firstcontainer{
+            font-family: sans-serif;
+            font-size: 10px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+        }
+        h3{
+            margin-left: 20px;
+            color:grey;
+
+        }
+        h1{
+            margin-left: 20px;
+        }
+        h4{
+            margin-top: 20px;
+            margin-left: 20px;
+            text-decoration: line-through;
+            color: grey;
+        }
+
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+];
+
+var body=document.querySelector("body");
+var div1=document.createElement("div");
+div1.setAttribute("id","container");
+body.append(div1);
+showProd();
+    function showProd(){
+        data.map(function(item){
+       var imageDiv=document.createElement("div");
+        imageDiv.setAttribute("id","firstcontainer");
+
+            var imageDiv1=document.createElement("img");
+         imageDiv1.setAttribute("src",item.imgUrl);
+
+         var shakti=document.createElement("h3");
+        shakti.textContent=item.name;
+
+      var PriceDiv=document.createElement("div");
+       PriceDiv.setAttribute("id","secondcontainer");
+
+         var price=document.createElement("h1");
+        price.textContent=item.price;
+
+       var offprice=document.createElement("h4");
+       offprice.textContent=item.strikedOffPrice;
+
+      PriceDiv.append(price,offprice);
+      imageDiv.append(imageDiv1,shakti,PriceDiv);
+
+    div1.append(imageDiv);
+     });
+};
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contan{
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows:400px;
+            grid-gap: 20px;
+            
+         }
+        .container>div{
+            height: 100px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #nav{
+             background-color: #f7ff00;
+        } 
+        .contan>div:nth-child(1){
+             background-color: #ff0000;
+    
+        } 
+        .contan>div:nth-child(2){
+             background-color: #00ff2a;
+        } 
+        .contan>div:nth-child(3){
+             background-color: #5763ee;
+        } 
+        .contan>div:nth-child(4){
+             background-color: #989898;
+        } 
+        @media only screen and (min-width: 375px) and (max-width: 768px) {
+        .contan {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media only screen and (min-width: 0px) and (max-width: 375px) {
+        .contan{
+          width: 100%;
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id ="nav">
+            <div>Navigation</div>
+        </div>
+        <div class="contan">
+        <div>Box1</div>
+        <div>Box2</div>
+        <div>Box3</div>
+        <div>Box4</div>
+    </div>
+</body>
+</html>

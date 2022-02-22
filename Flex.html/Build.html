@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Build the Navbar using flex</title>
+    <style>
+        .Navbar{
+            width: 90%;
+            height: 100px;
+            background-color: rgb(23, 18, 34);
+            border: 1px solid green;
+            margin: auto;
+            display: flex;
+        }
+        .left{
+            width: 58%;
+            height: 100%;
+            font-size: 28px;
+            color: white;
+            padding: 25px;
+        }
+        .right{
+            color: white;
+            width:32%;
+            display: flex;
+            justify-content: space-around;
+            padding: 2%;
+            font-size: 25px;
+        }
+        select{
+            padding: 1px;
+            background-color: transparent;
+            color: white;
+            border: 0px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Navbar">
+        <div class="left">MEGAWIDTH</div>
+        <div class="right">
+            <div>Home</div>
+            <div>About</div>
+            <div>Blog</div>
+            <div>
+                <select>
+                    <option>Page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

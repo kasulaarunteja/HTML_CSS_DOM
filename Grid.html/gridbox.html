@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid box</title>
+    <style>
+         .container{
+             display: grid;
+             grid-template-rows: 100px 100px 10px 70px 100px 100px 100px;
+             grid-template-columns: repeat(4,1fr);
+             grid-gap:10px;
+             grid-template-areas: 
+             "a a b e"
+             "c d b e"
+             ". . . e"
+             ". . . ."
+             "f f g g"
+             "h i i i"
+             "j j j j"
+             ;
+         }
+         .container >div{
+             background-color:#444444;
+             border-radius: 20px;
+             text-align: center;
+         }
+         .container >div:nth-child(1) {
+            grid-area: a;
+        }
+        .container >div:nth-child(2) {
+            grid-area: b;
+        }
+        .container >div:nth-child(3) {
+            grid-area: c;
+        }
+        
+        .container >div:nth-child(4) {
+            grid-area: d;
+        }
+        .container >div:nth-child(5) {
+            grid-area: e;
+        }
+        .container >div:nth-child(6) {
+            grid-area: f;
+        }
+        .container >div:nth-child(7) {
+            grid-area: g;
+        }
+        .container >div:nth-child(8) {
+            grid-area: h;
+        }
+        .container >div:nth-child(9) {
+            grid-area: i;
+        }
+        .container >div:nth-child(10) {
+            grid-area: j;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>I</div>
+        <div>J</div>  
+        
+    </div>
+</body>
+</html>
